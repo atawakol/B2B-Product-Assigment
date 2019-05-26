@@ -2,7 +2,9 @@ package com.example.b2b.product.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -24,14 +26,17 @@ import javax.persistence.*;
 public class DietaryFlags {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long dietaryId;
+    @GeneratedValue(strategy= GenerationType.AUTO, generator = "Dietary_PK_Generator")
+    @EqualsAndHashCode.Exclude
+    private Long dietaryId;
 
     private String dietaryFlagName;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="PRODUCTID", nullable=false)
     @JsonIgnore
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Product product;
 
 }

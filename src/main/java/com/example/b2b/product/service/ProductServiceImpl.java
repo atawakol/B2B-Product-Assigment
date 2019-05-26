@@ -32,22 +32,22 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public void createProduct(Product prod) {
+    public Product createProduct(Product prod) {
         log.info("Insert a new Product");
-        productRepository.save(prod);
+        return productRepository.save(prod);
     }
 
     @Override
-    public void updateProduct(Product prod) {
+    public Product updateProduct(Product prod) {
         // Custom logic for update can be added here.
         log.info("update Product with id {} ", prod.getProductId());
-        productRepository.save(prod);
+        return productRepository.save(prod);
     }
 
     @Override
-    public void deleteProduct(long prodId) {
-        log.info("delete Product with id {} ", prodId);
-        productRepository.deleteById(prodId);
+    public void deleteProduct(Product product) {
+        log.info("delete Product with id {} ", product.getProductId());
+        productRepository.delete(product);
     }
 
     @Override

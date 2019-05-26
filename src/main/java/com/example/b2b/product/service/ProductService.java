@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface ProductService {
 
-    void createProduct(Product prod);
-    void updateProduct(Product prod);
-    void deleteProduct(long prodId);
+    Product createProduct(Product prod);
+    Product updateProduct(Product prod);
+    void deleteProduct(Product product);
     List<Product> getAllProducts();
 
     Product findById(long prodId);

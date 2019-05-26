@@ -20,19 +20,22 @@ import java.util.UUID;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Product {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO, generator = "Product_PK_Generator")
     @Setter(AccessLevel.NONE)
-    private long productId;
+    @EqualsAndHashCode.Exclude
+    private Long productId;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true)
-    private long vendorUID;
+    @Column(nullable = false)
+    @NotNull
+    private Long vendorUID;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 60)
     @Setter(AccessLevel.NONE)
+    @EqualsAndHashCode.Exclude
     private String uuid = UUID.randomUUID().toString();
 
     @Size(min=3, max=255, message="The length of the product name has to be between 3 and 255")
@@ -54,7 +57,9 @@ public class Product {
     private long numberOfViews;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-    @Setter(AccessLevel.MODULE.NONE)
+    @Setter(AccessLevel.NONE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Set<DietaryFlags> dietaryFlags = new HashSet<>();
 
 
