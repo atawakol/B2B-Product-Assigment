@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 public class ProductController {
 
-    private static final String PRODUCT_PATH = "/products/{id}/";
+    private static final String PRODUCT_PATH = "/products/{id}";
     @Autowired
     private ProductService productService;
 
