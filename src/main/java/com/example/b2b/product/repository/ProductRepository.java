@@ -7,6 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository class that handle all operation against the DB.
+ *
+ * The RestResources are not exported as we have created A custom rest endpoint
+ *
+ * @author atawakol
+ */
 @Repository
 @RestResource(exported = false)
 public interface ProductRepository extends CrudRepository<Product, Long> {

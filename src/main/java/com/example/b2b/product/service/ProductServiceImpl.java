@@ -4,8 +4,6 @@ import com.example.b2b.product.exceptions.ProductNotFoundException;
 import com.example.b2b.product.model.Product;
 import com.example.b2b.product.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,6 +39,9 @@ public class ProductServiceImpl implements ProductService {
     public Product updateProduct(Product prod) {
         // Custom logic for update can be added here.
         log.info("update Product with id {} ", prod.getProductId());
+        // Custom logic is needed to handle the removal of dietary flag from product.
+        // That can be done here by loading flags and compare them
+        // Or better to provide a Rest endpoint to remove the flags.
         return productRepository.save(prod);
     }
 

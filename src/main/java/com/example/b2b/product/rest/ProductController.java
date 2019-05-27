@@ -14,6 +14,13 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * Products resource end points.
+ *
+ * This class handle the CRUD operation for Products endpoint in addition to some search endpoints
+ *
+ * @author atawakol
+ */
 @RestController
 @RequestMapping("/api/products")
 @Slf4j

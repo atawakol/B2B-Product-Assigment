@@ -33,7 +33,7 @@ public class DietaryFlags {
     private String dietaryFlagName;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="PRODUCTID", nullable=false)
+    @JoinColumn(name="PRODUCTID", nullable=false, insertable = false, updatable = false)
     @JsonIgnore
     @EqualsAndHashCode.Exclude
     @ToString.Exclude

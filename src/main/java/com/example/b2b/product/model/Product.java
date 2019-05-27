@@ -56,7 +56,8 @@ public class Product {
     @Min(value = 0, message = "The number of views can't be less than zero")
     private long numberOfViews;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name="PRODUCTID", nullable=false)
     @Setter(AccessLevel.NONE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
