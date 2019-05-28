@@ -50,6 +50,9 @@ public class Product {
     @Column(precision =5, scale = 2)
     private BigDecimal price;
 
+    /**
+     *  This field should hold the image path only. The image itself should be saved to a File Server or better on S3
+     */
     @Column(length = 255)
     private String imagePath;
 
